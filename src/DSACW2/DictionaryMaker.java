@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.concurrent.*;
 
 public class DictionaryMaker {
-//Updated file
+
     ArrayList<String> dict;
 
 
@@ -43,17 +43,17 @@ public class DictionaryMaker {
 
     public void FormDictionary() throws FileNotFoundException {
 
-        TreeMap<Integer, String> t = new TreeMap<Integer, String>();//Stores list of words with the numbers
+        TreeMap<Integer, String> t = new TreeMap<Integer, String>();// Stores a key and a String value
 
-        for (String s : dict) {
+        for (String s : dict) { //Goes through each word in the file
 
-            if (!t.containsValue(s)) {
+            if (!t.containsValue(s)) {//If the String value is not in the Treemap
 
-                t.put(1, s);
+                t.put(1, s);//Add value in Treemap
 
             } else {
 
-                t.put(+1, t.get(s));
+                t.put(+1, t.get(s));//Increments key if String value is in Treemap already
             }
 
             System.out.println(t);
@@ -78,7 +78,7 @@ public class DictionaryMaker {
     }
 
     public static void main(String[] args) throws Exception {
-        ArrayList<String> in = readWordsFromCSV("C:\\Users\\Jarde\\Documents\\CompEng 1920\\DATA STRCUTURES\\TextFiles\\lotr.csv");
+        ArrayList<String> in = readWordsFromCSV("C:\\Users\\cnu15zwu\\Documents\\DSACW2\\TextFiles\\lotr.csv");
         DictionaryMaker df = new DictionaryMaker(in);
         //DO STUFF TO df HERE in countFrequencies
         df.FormDictionary();
