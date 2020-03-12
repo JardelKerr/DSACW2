@@ -43,20 +43,22 @@ public class DictionaryMaker {
 
     public void FormDictionary() throws FileNotFoundException {
 
-        TreeMap<Integer, String> t = new TreeMap<Integer, String>();// Stores a key and a String value
+        TreeMap<Integer, String> words = new TreeMap<Integer, String>();// Stores a key and a String value
 
         for (String s : dict) { //Goes through each word in the file
 
-            if (!t.containsValue(s)) {//If the String value is not in the Treemap
+            if (words.containsKey(s)) {//If the String value is not in the Treemap
 
-                t.put(1, s);//Add value in Treemap
+               // words.put(words.get(s) + 1, s);
 
             } else {
 
-                t.put(+1, t.get(s));//Increments key if String value is in Treemap already
+                words.put(1, s);//Add value in Treemap
+
+                //Increments key if String value is in Treemap already
             }
 
-            System.out.println(t);
+            System.out.println(words);
         }
     }
 
